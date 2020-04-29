@@ -13,3 +13,5 @@ différences importantes je mettrai de toute façon les deux versions dans le fi
 
 Si vous avez des suggestions (ou des aspects qui sortent du programme du cours mais que vous
 voudriez évoquer), créez une issue avec le label `Suggestion`
+
+Si vous avez du temps à perdre :) https://utip.io/Someody42
