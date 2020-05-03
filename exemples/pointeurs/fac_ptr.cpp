@@ -20,9 +20,9 @@ int* fac_pointeur(int* p_n) {
 }
 
 int main() {
-  int* n = //À compléter
-  *n = 5
-  std::cout<<"La version classique donne "<<fac_classique(*n);
+  int* p_n = //À compléter
+  *p_n = 5
+  std::cout<<"La version classique donne "<<fac_classique(*p_n);
   int* p_resultat = //À compléter
   std::cout<<" et la version pointeurs donne "<<*p_resultat<<std::endl;
   //Libération de mémoire à faire

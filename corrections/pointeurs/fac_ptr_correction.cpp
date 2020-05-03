@@ -30,11 +30,11 @@ int* fac_pointeur(int* p_n) {
 }
 
 int main() {
-  int* n = (int*)malloc(sizeof(int));
-  *n = 10;
-  std::cout<<"La version classique donne "<<fac_classique(*n);
-  int* p_resultat = fac_pointeur(n);
+  int* p_n = (int*)malloc(sizeof(int));
+  *p_n = 10;
+  std::cout<<"La version classique donne "<<fac_classique(*p_n);
+  int* p_resultat = fac_pointeur(p_n);
   std::cout<<" et la version pointeurs donne "<<*p_resultat<<std::endl;
   free(p_resultat);
-  free(n);
+  free(p_n);
 }
