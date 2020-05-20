@@ -2,17 +2,18 @@
 
 using namespace std;
 
-template<typename T>
-void swap_ref(T& a, T& b) {
-  T tmp;
+void swap_ref(int& a, int& b) {
+  int tmp;
   tmp = a;
   a = b;
   b = tmp;
 }
 
-template<typename T>
-void swap_ptr(T* a, T* b) {
-  //À compléter
+void swap_ptr(int* p_a, int* p_b) {
+  int tmp;
+  tmp = *p_a;
+  *p_a = *p_b;
+  *p_b = tmp;
 }
 
 int main(int argc, char const *argv[]) {
