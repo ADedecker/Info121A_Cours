@@ -107,7 +107,6 @@ Motivations :
 Exemple : interface
 
 On veut cacher l'initialisation dans une fonction
-
 ```cpp
 Interface nouvelleInterface() {
   Interface inter;
@@ -131,6 +130,7 @@ Programme faux : la variable inter est détruite à la fin de la fonction, donc 
 
 Problème des variables allouées automatiquement : elles sont désallouées automatiquement
 
+Dernière idée : créer directement un pointeur
 ```cpp
 Interface* nouvelleInterface() {
   Interface* p_inter; (0xabc123567890)
@@ -139,7 +139,9 @@ Interface* nouvelleInterface() {
 }
 ```
 
-Au final, on voudrait pouvoir réserver soi même la mémoire dont on a besoin
+Problème : ici on a créé aucune interface, juste un emplacement pour stocker l'adresse d'une interface
+
+Au final, on voudrait pouvoir réserver soi même la mémoire dont on a besoin, quand on en a besoin, sans devoir se reposer sur le compilateur et la gestion automatique de la mémoire
 
 ### `malloc` et le début des ennuis
 
@@ -152,6 +154,7 @@ On va snober le compilateur et aller parler directement à l'OS
 - Ok je garde ça précieusement
 - Et, ma mémoire, elle s'appelle "reviens" !
 
+Traduction en `C++` (moins esthétique, plus synthétique)
 ```cpp
 #include <cstdlib>
 
@@ -172,3 +175,5 @@ Une fois qu'on a fini d'utiliser l'interface :
 ```cpp
 free(ptr);
 ```
+
+Règle d'or : **Dès que vous écrivez un `malloc`, écrivez le `free` correspondant**
