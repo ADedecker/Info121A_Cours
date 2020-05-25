@@ -12,7 +12,7 @@ Les questions portent sur des extraits de code (pas toujours corrects), lisez le
 int a = 25;
 int b = a;
 b = 42;
-cout<<a<<std::endl;
+cout<<a<<endl;
 ```
 
 - Ce code ne compile pas
@@ -27,7 +27,7 @@ cout<<a<<std::endl;
 int a = 25;
 int* b = &a;
 *b = 42;
-cout<<a<<std::endl;
+cout<<a<<endl;
 ```
 
 - Ce code ne compile pas
@@ -42,7 +42,7 @@ cout<<a<<std::endl;
 int a = 25;
 int* b = &a;
 b = 42;
-cout<<*b<<std::endl;
+cout<<*b<<endl;
 ```
 
 - Ce code ne compile pas
