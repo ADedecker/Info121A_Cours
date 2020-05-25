@@ -164,7 +164,7 @@ int main() {
 
 ### Question 9
 
-Contexte : vous en avez marre de devoir vous rappeler la syntaxe de `malloc`. Vous demandez à votre équipe de développeur de coder des fonctions qui `int* nouvelEntier(int valeur)` qui alloue manuellement un entier, lui assigne la valeur `valeur`, et renvoie son adresse. Ils vous proposent les codes suivants :
+Contexte : vous en avez marre de devoir vous rappeler la syntaxe de `malloc`. Vous demandez à votre équipe de développeur de coder une fonction `int* nouvelEntier(int valeur)` qui alloue manuellement un entier, lui assigne la valeur `valeur`, et renvoie son adresse. Ils vous proposent les codes suivants :
 
 **Code A :**
 ```cpp
