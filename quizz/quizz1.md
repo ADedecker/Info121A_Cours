@@ -177,18 +177,18 @@ int* nouvelEntier(int valeur) {
 **Code B :**
 ```cpp
 int* nouvelEntier(int valeur) {
-  int a = (int)malloc(sizeof(int));
-  a = valeur;
-  return &a;
+  int* a = (int*)malloc(sizeof(int));
+  *a = valeur;
+  return a;
 }
 ```
 
 **Code C :**
 ```cpp
 int* nouvelEntier(int valeur) {
-  int* a = (int*)malloc(sizeof(int));
-  *a = valeur;
-  return a;
+  int a = (int)malloc(sizeof(int));
+  a = valeur;
+  return &a;
 }
 ```
 
@@ -246,5 +246,5 @@ Voici les bonnes réponses, je donnerai plus d'explication au prochain cours :
 - q6 : 1
 - q7 : 5
 - q8 : 3
-- q9 : 3
+- q9 : 2
 - q10 : 3
