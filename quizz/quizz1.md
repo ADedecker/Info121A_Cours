@@ -96,9 +96,9 @@ int main() {
 ```cpp
 void swap(int* p_a, int* p_b) {
   int tmp;
-  tmp = * p_a;
-  * p_a = * p_b;
-  * p_b = tmp;
+  tmp = *p_a;
+  *p_a = *p_b;
+  *p_b = tmp;
 }
 
 int main() {
@@ -119,9 +119,9 @@ int main() {
 ```cpp
 void swap(int* p_a, int* p_b) {
   int tmp;
-  tmp = * p_a;
+  tmp = *p_a;
   p_a = p_b;
-  * p_b = tmp;
+  *p_b = tmp;
 }
 
 int main() {
@@ -142,9 +142,9 @@ int main() {
 ```cpp
 void swap(int* p_a, int* p_b) {
   int tmp;
-  tmp = * p_a;
-  * p_a = * p_b;
-  * p_b = tmp;
+  tmp = *p_a;
+  *p_a = *p_b;
+  *p_b = tmp;
 }
 
 int main() {
@@ -187,7 +187,7 @@ int* nouvelEntier(int valeur) {
 ```cpp
 int* nouvelEntier(int valeur) {
   int* a = (int*)malloc(sizeof(int));
-  * a = valeur;
+  *a = valeur;
   return a;
 }
 ```
@@ -196,7 +196,7 @@ int* nouvelEntier(int valeur) {
 ```cpp
 int* nouvelEntier(int valeur) {
   int* a = (int*)malloc(sizeof(int));
-  * a = valeur;
+  *a = valeur;
   return &a;
 }
 ```
@@ -214,7 +214,7 @@ Le développeur du code correct est tellement fier de son code qu'il le publie s
 
 ```cpp
 int main() {
-  //Ce programme calcule les 10 premiers termes de la suite factorielle
+  //Ce programme calcule les 10 premiers termes de la suite de Fibonacci
   int* tab[10];
   tab[0] = nouvelEntier(0);
   tab[1] = nouvelEntier(1);
