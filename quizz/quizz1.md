@@ -1,8 +1,8 @@
 # Quiz 1 : Les pointeurs, première approche
 
-Au dernier cours, nous avons fait une petite introduction aux pointeurs. Le sujet étant assez délicat mais très important, j'ai souhaité préparer un petit questionnaire que nous corrigerons en cours. Je vous ai laissé la possibilité de donner votre nom, pour que je puisse avoir une idée de qui a du mal, mais vous pouvez aussi le faire anonymement.
+Au dernier cours, nous avons fait une petite introduction aux pointeurs. Le sujet étant assez délicat mais très important, j'ai souhaité préparer un petit questionnaire que nous corrigerons en cours. Le but est principalement l'auto-évaluation, donc vous aurez les réponses à la fin. Si ça ne vous dérange pas, je veux bien que vous me transmettiez les questions où vous vous êtes trompés, afin que j'aie une petite idée des difficultés.
 
-Les questions portent sur des extraits de code, lisez les attentivement avant de répondre.
+Les questions portent sur des extraits de code (pas toujours corrects), lisez les attentivement !
 
 ## Partie 1
 
@@ -17,7 +17,7 @@ cout<<a<<std::endl;
 
 - Ce code ne compile pas
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
-- **Ce code affiche `25`**
+- Ce code affiche `25`
 - Ce code affiche `42`
 - Ce code affiche une adresse mémoire
 
@@ -33,7 +33,7 @@ cout<<a<<std::endl;
 - Ce code ne compile pas
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
 - Ce code affiche `25`
-- **Ce code affiche `42`**
+- Ce code affiche `42`
 - Ce code affiche une adresse mémoire
 
 ### Question 3
@@ -45,7 +45,7 @@ b = 42;
 cout<<*b<<std::endl;
 ```
 
-- **Ce code ne compile pas**
+- Ce code ne compile pas
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
 - Ce code affiche `25`
 - Ce code affiche `42`
@@ -64,7 +64,7 @@ cout<<b<<endl;
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
 - Ce code affiche `25`
 - Ce code affiche `42`
-- **Ce code affiche une adresse mémoire**
+- Ce code affiche une adresse mémoire
 
 ## Partie 2
 
@@ -88,7 +88,7 @@ int main() {
 - Ce code ne compile pas
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
 - Ce code affiche `3 2`
-- **Ce code affiche `2 3`**
+- Ce code affiche `2 3`
 - Ce code affiche `2 2`
 
 ### Question 6
@@ -108,7 +108,7 @@ int main() {
 }
 ```
 
-- **Ce code ne compile pas**
+- Ce code ne compile pas
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
 - Ce code affiche `3 2`
 - Ce code affiche `2 3`
@@ -135,7 +135,7 @@ int main() {
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
 - Ce code affiche `3 2`
 - Ce code affiche `2 3`
-- **Ce code affiche `2 2`**
+- Ce code affiche `2 2`
 
 ### Question 8
 
@@ -156,7 +156,7 @@ int main() {
 
 - Ce code ne compile pas
 - Ce code a un comportement indéfini (SEGFAULT, fonctionnement bizarre...)
-- **Ce code affiche `3 2`**
+- Ce code affiche `3 2`
 - Ce code affiche `2 3`
 - Ce code affiche `2 2`
 
@@ -204,7 +204,7 @@ int* nouvelEntier(int valeur) {
 Lequel choisissez-vous :
 - Le code A
 - Le code B
-- **Le code C**
+- Le code C
 - La réponse D
 - Le code D
 
@@ -232,5 +232,19 @@ int main() {
 
 - On ne doit pas utiliser `malloc` en C++
 - Il faut utiliser des pointeurs intelligents et la RAII
-- **Ce programme cause une fuite de mémoire**
+- Ce programme cause une fuite de mémoire
 - Faites du python c'est plus intuitif
+
+# Réponses
+
+Voici les bonnes réponses, je donnerai plus d'explication au prochain cours :
+- q1 : 3
+- q2 : 4
+- q3 : 1
+- q4 : 5
+- q5 : 4
+- q6 : 1
+- q7 : 5
+- q8 : 3
+- q9 : 3
+- q10 : 3
