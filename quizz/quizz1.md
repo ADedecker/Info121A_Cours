@@ -12,7 +12,7 @@ Les questions portent sur des extraits de code (pas toujours corrects), lisez le
 int a = 25;
 int b = a;
 b = 42;
-cout<<a<<std::endl;
+cout<<a<<endl;
 ```
 
 - Ce code ne compile pas
@@ -27,7 +27,7 @@ cout<<a<<std::endl;
 int a = 25;
 int* b = &a;
 *b = 42;
-cout<<a<<std::endl;
+cout<<a<<endl;
 ```
 
 - Ce code ne compile pas
@@ -42,7 +42,7 @@ cout<<a<<std::endl;
 int a = 25;
 int* b = &a;
 b = 42;
-cout<<*b<<std::endl;
+cout<<*b<<endl;
 ```
 
 - Ce code ne compile pas
@@ -96,9 +96,9 @@ int main() {
 ```cpp
 void swap(int* p_a, int* p_b) {
   int tmp;
-  tmp = * p_a;
-  * p_a = * p_b;
-  * p_b = tmp;
+  tmp = *p_a;
+  *p_a = *p_b;
+  *p_b = tmp;
 }
 
 int main() {
@@ -119,9 +119,9 @@ int main() {
 ```cpp
 void swap(int* p_a, int* p_b) {
   int tmp;
-  tmp = * p_a;
+  tmp = *p_a;
   p_a = p_b;
-  * p_b = tmp;
+  *p_b = tmp;
 }
 
 int main() {
@@ -142,9 +142,9 @@ int main() {
 ```cpp
 void swap(int* p_a, int* p_b) {
   int tmp;
-  tmp = * p_a;
-  * p_a = * p_b;
-  * p_b = tmp;
+  tmp = *p_a;
+  *p_a = *p_b;
+  *p_b = tmp;
 }
 
 int main() {
@@ -164,7 +164,7 @@ int main() {
 
 ### Question 9
 
-Contexte : vous en avez marre de devoir vous rappeler la syntaxe de `malloc`. Vous demandez à votre équipe de développeur de coder des fonctions qui `int* nouvelEntier(int valeur)` qui alloue manuellement un entier, lui assigne la valeur `valeur`, et renvoie son adresse. Ils vous proposent les codes suivants :
+Contexte : vous en avez marre de devoir vous rappeler la syntaxe de `malloc`. Vous demandez à votre équipe de développeur de coder une fonction `int* nouvelEntier(int valeur)` qui alloue manuellement un entier, lui assigne la valeur `valeur`, et renvoie son adresse. Ils vous proposent les codes suivants :
 
 **Code A :**
 ```cpp
@@ -177,18 +177,18 @@ int* nouvelEntier(int valeur) {
 **Code B :**
 ```cpp
 int* nouvelEntier(int valeur) {
-  int a = (int)malloc(sizeof(int));
-  a = valeur;
-  return &a;
+  int* a = (int*)malloc(sizeof(int));
+  *a = valeur;
+  return a;
 }
 ```
 
 **Code C :**
 ```cpp
 int* nouvelEntier(int valeur) {
-  int* a = (int*)malloc(sizeof(int));
-  * a = valeur;
-  return a;
+  int a = (int)malloc(sizeof(int));
+  a = valeur;
+  return &a;
 }
 ```
 
@@ -196,7 +196,7 @@ int* nouvelEntier(int valeur) {
 ```cpp
 int* nouvelEntier(int valeur) {
   int* a = (int*)malloc(sizeof(int));
-  * a = valeur;
+  *a = valeur;
   return &a;
 }
 ```
@@ -214,7 +214,7 @@ Le développeur du code correct est tellement fier de son code qu'il le publie s
 
 ```cpp
 int main() {
-  //Ce programme calcule les 10 premiers termes de la suite factorielle
+  //Ce programme calcule les 10 premiers termes de la suite de Fibonacci
   int* tab[10];
   tab[0] = nouvelEntier(0);
   tab[1] = nouvelEntier(1);
@@ -246,5 +246,5 @@ Voici les bonnes réponses, je donnerai plus d'explication au prochain cours :
 - q6 : 1
 - q7 : 5
 - q8 : 3
-- q9 : 3
+- q9 : 2
 - q10 : 3
