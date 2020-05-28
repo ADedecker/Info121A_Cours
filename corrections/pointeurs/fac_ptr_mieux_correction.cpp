@@ -16,7 +16,7 @@ int fac_classique(int n) {
 }
 
 bool fac_pointeur(int* p_n, int* p_resultat) {
-  int* p_i = (int*)malloc(sizeof(int));
+  int* p_i = (decltype(p_i))malloc(sizeof(*p_i));
   if(p_i == nullptr) return false;
   *p_i = 1;
   *p_resultat = 1;
@@ -29,8 +29,8 @@ bool fac_pointeur(int* p_n, int* p_resultat) {
 }
 
 int main() {
-  int* p_n = (int*)malloc(sizeof(int));
-  int* p_resultat = (int*)malloc(sizeof(int));
+  int* p_n = (decltype(p_n))malloc(sizeof(*p_n));
+  int* p_resultat = (decltype(p_resultat))malloc(sizeof(*p_resultat));
   if(p_n != nullptr && p_resultat != nullptr) {
     *p_n = 10;
     std::cout<<"La version classique donne "<<fac_classique(*p_n);
