@@ -17,7 +17,8 @@ bool changeTaille(VectorInt* p_v, size_t nouvelleTaille, int val = 0);
 bool ajouteFin(VectorInt* p_v, int val = 0);
 
 /*Partie 3 bonus
-- Itroduire concept de capacité : zone allouée mais ne faisant pas partie du tableau
-- fonctions capacite, reserver, libererSurplus (shrink_to_fit)
+- Introduire concept de capacité : zone allouée mais ne faisant pas partie du tableau
+- Fonctions capacite, reserver, libererSurplus (shrink_to_fit)
+- Passer ajouteFin en complexité amortie
 - Allez lire la doc et amusez vous !
 */
