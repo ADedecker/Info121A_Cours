@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "vectorint.hpp"
+#include "vectorlvl1.hpp"
 
 using namespace std;
 
@@ -23,11 +23,11 @@ size_t taille(VectorInt* p_v) {
 }
 
 int lire(VectorInt* p_v, size_t i) {
-  return *(p_v->debut + i);
+  return (p_v->debut)[i];
 }
 
 void ecrire(VectorInt* p_v, size_t i, int val) {
-  *(p_v->debut + i) = val;
+  (p_v->debut)[i] = val;
 }
 
 bool changeTaille(VectorInt* p_v, size_t nouvelleTaille, int val) {

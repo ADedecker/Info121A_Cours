@@ -2,7 +2,8 @@ fac_ptr_correction
 fac_ptr
 swap_ptr_correction
 swap_ptr
-vectorint
+vectorlvl1
+vectorlvl2
 fac_ptr_mieux
 fac_ptr_mieux_correction
 fac_ptr_new
