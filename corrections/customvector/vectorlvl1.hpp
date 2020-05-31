@@ -1,8 +1,8 @@
 #include <iostream>
 
 struct VectorInt{
-  int* debut;
-  int* fin;
+  int* debut = nullptr;
+  int* fin = nullptr;
 };
 
 //Partie 1

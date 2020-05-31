@@ -2,9 +2,9 @@
 
 template <typename T> // On fait un modèle de classe pour tout type T
 struct Vector {
-  T* debut;
-  T* fin;
-  T* finCap;
+  T* debut = nullptr;
+  T* fin = nullptr;
+  T* finCap = nullptr;
   T& operator [](size_t i) { //Paramètre sous-entendu : VectorInt* this
     return (this->debut)[i];
   }
