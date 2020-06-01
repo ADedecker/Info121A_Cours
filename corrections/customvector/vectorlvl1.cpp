@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool initVectorInt(VectorInt* p_v, size_t taille, int val) {
+bool construireVectorInt(VectorInt* p_v, size_t taille, int val) {
   p_v->debut = (int*)malloc(taille * sizeof(int));
   if (p_v->debut == nullptr) return false;
   p_v->fin = p_v->debut+taille;
@@ -14,7 +14,7 @@ bool initVectorInt(VectorInt* p_v, size_t taille, int val) {
   return true;
 }
 
-void supprimerVectorInt(VectorInt* p_v) {
+void detruireVectorInt(VectorInt* p_v) {
   free(p_v->debut);
 }
 
@@ -51,7 +51,7 @@ bool ajouteFin(VectorInt* p_v, int val) {
 
 int main() {
   VectorInt v;
-  if(initVectorInt(&v,10,1)) {
+  if(construireVectorInt(&v,10,1)) {
     cout<<taille(&v)<<endl;
     cout<<lire(&v,9)<<endl;
     if(ajouteFin(&v,2)) {
@@ -65,7 +65,7 @@ int main() {
       cout<<lire(&v,10)<<endl;
       cout<<lire(&v,11)<<endl;
     }
-    supprimerVectorInt(&v); //Démo en supprimant + getchar
+    detruireVectorInt(&v); //Démo en supprimant + getchar
   }
   return 0;
 }
