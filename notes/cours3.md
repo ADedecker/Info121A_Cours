@@ -104,7 +104,7 @@ Attention, la validité des pointeurs varie selon les cas
 
 Il est très important de tester le résultat de `realloc`
 
-Remarque POO : `realloc` n'appelle pas l'opérateur de copie, c'est une
+Remarque POO : `realloc` n'appelle pas l'opérateur de copie, il fait une copie "bit par bit".
 
 ### `sizeof`
 
