@@ -30,14 +30,11 @@ void ecrire(VectorInt* p_v, size_t i, int val) {
   (p_v->debut)[i] = val;
 }
 
-bool changeTaille(VectorInt* p_v, size_t nouvelleTaille, int val) {
-  int* ancienDebut = p_v->debut;
+bool changerTaille(VectorInt* p_v, size_t nouvelleTaille, int val) {
   size_t ancienneTaille = taille(p_v);
-  p_v->debut = (int*)realloc(p_v->debut, nouvelleTaille * sizeof(int));
-  if (p_v->debut == nullptr) {
-    p_v->debut = ancienDebut;
-    return false;
-  }
+  int* nouveauDebut = (int*)realloc(p_v->debut, nouvelleTaille * sizeof(int));
+  if (nouveauDebut == nullptr) return false;
+  p_v->debut = nouveauDebut;
   p_v->fin = p_v->debut + nouvelleTaille;
   for (size_t i = ancienneTaille; i < nouvelleTaille; i++) {
     (p_v->debut)[i] = val;
@@ -45,8 +42,8 @@ bool changeTaille(VectorInt* p_v, size_t nouvelleTaille, int val) {
   return true;
 }
 
-bool ajouteFin(VectorInt* p_v, int val) {
-  return changeTaille(p_v,taille(p_v)+1,val);
+bool ajouterFin(VectorInt* p_v, int val) {
+  return changerTaille(p_v,taille(p_v)+1,val);
 }
 
 int main() {
@@ -54,12 +51,12 @@ int main() {
   if(construireVectorInt(&v,10,1)) {
     cout<<taille(&v)<<endl;
     cout<<lire(&v,9)<<endl;
-    if(ajouteFin(&v,2)) {
+    if(ajouterFin(&v,2)) {
       cout<<taille(&v)<<endl;
       cout<<lire(&v,9)<<endl;
       cout<<lire(&v,10)<<endl;
     }
-    if(changeTaille(&v, 1ul<<16, 42)){
+    if(changerTaille(&v, 1ul<<16, 42)){
       cout<<taille(&v)<<endl;
       cout<<lire(&v,9)<<endl;
       cout<<lire(&v,10)<<endl;

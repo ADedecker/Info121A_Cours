@@ -10,3 +10,7 @@ fac_ptr_new
 fac_ptr_new_correction
 malloc_non_init
 double_free_structure
+brouillon.cpp
+brouillon
+print_tab
+tab
