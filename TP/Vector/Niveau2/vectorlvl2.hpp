@@ -9,10 +9,10 @@ struct Vector {
 };
 
 template <typename T>
-void initVector(Vector<T>* p_v, size_t taille, T val) {}
+void contruireVector(Vector<T>* p_v, size_t taille, T val) {}
 
 template <typename T>
-void supprimerVector(Vector<T>* p_v) {}
+void detruireVector(Vector<T>* p_v) {}
 
 template <typename T>
 size_t taille(Vector<T>* p_v) {}
@@ -24,10 +24,10 @@ template <typename T>
 void reserver(Vector<T>* p_v, size_t nouvelleCapacite) {}
 
 template <typename T>
-void changeTaille(Vector<T>* p_v, size_t nouvelleTaille, T val) {}
+void changerTaille(Vector<T>* p_v, size_t nouvelleTaille, T val) {}
 
 template <typename T>
-void ajouteFin(Vector<T>* p_v, T val) {}
+void ajouterFin(Vector<T>* p_v, T val) {}
 
 template <typename T>
-void enleveFin(Vector<T>* p_v) {}
+void enleverFin(Vector<T>* p_v) {}
