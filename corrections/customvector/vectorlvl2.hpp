@@ -11,7 +11,7 @@ struct Vector {
 };
 
 template <typename T>
-void initVector(Vector<T>* p_v, size_t taille, T val) {
+void construireVector(Vector<T>* p_v, size_t taille, T val) {
   p_v->debut = new T[taille];
   p_v->finCap = p_v->fin = p_v->debut+taille;
   for (size_t i = 0; i < taille; i++) {
@@ -20,7 +20,7 @@ void initVector(Vector<T>* p_v, size_t taille, T val) {
 }
 
 template <typename T>
-void supprimerVector(Vector<T>* p_v) {
+void detruireVector(Vector<T>* p_v) {
   delete[] p_v->debut;
 }
 
@@ -49,7 +49,7 @@ void reserver(Vector<T>* p_v, size_t nouvelleCapacite) {
 }
 
 template <typename T>
-void changeTaille(Vector<T>* p_v, size_t nouvelleTaille, T val) {
+void changerTaille(Vector<T>* p_v, size_t nouvelleTaille, T val) {
   size_t ancienneTaille = taille(p_v);
   size_t ancienneCapacite = capacite(p_v);
   if(ancienneCapacite < nouvelleTaille) reserver(p_v,nouvelleTaille);
@@ -60,7 +60,7 @@ void changeTaille(Vector<T>* p_v, size_t nouvelleTaille, T val) {
 }
 
 template <typename T>
-void ajouteFin(Vector<T>* p_v, T val) {
+void ajouterFin(Vector<T>* p_v, T val) {
   if(taille(p_v) == capacite(p_v)) {
     reserver(p_v,2*capacite(p_v));
   }
@@ -68,6 +68,6 @@ void ajouteFin(Vector<T>* p_v, T val) {
 }
 
 template <typename T>
-void enleveFin(Vector<T>* p_v) {
+void enleverFin(Vector<T>* p_v) {
   p_v->fin--;
 }
