@@ -13,8 +13,9 @@ struct Vector {
 template <typename T>
 void construireVector(Vector<T>* p_v, size_t taille, T val) {
   size_t capacite = taille ? taille : 1;
-  p_v->debut = new T[taille];
-  p_v->finCap = p_v->fin = p_v->debut+taille;
+  p_v->debut = new T[capacite];
+  p_v->finCap = p_v->debut+capacite;
+  p_v->fin = p_v->debut+taille;
   for (size_t i = 0; i < taille; i++) {
     (p_v->debut)[i] = val;
   }
