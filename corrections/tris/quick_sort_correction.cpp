@@ -7,13 +7,14 @@ int* partition(int* p_begin, int* p_end) {
   std::swap(*pivot,*(p_end-1));
   pivot = p_end - 1;
   int* it1 = p_begin;
-  for(int* it2 = p_begin; it2 != p_end; it2++) {
+  for(int* it2 = p_begin; it2 != p_end-1; it2++) {
     if(*it2 <= *pivot) {
       std::swap(*it1, *it2);
       it1++;
     }
   }
-  return it1-1;
+  std::swap(*it1,*pivot);
+  return it1;
 }
 
 void quicksort(int* p_begin, int* p_end) {
