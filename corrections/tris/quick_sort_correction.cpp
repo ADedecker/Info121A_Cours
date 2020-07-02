@@ -1,9 +1,10 @@
 #include <iostream>
 #include <utility>
 #include <cstdlib>
+#include <ctime>
 
 int* partition(int* p_begin, int* p_end) {
-  int* pivot = p_begin + (p_end-p_begin)/2; //Change to random
+  int* pivot = p_begin + std::rand()%(p_end-p_begin);
   std::swap(*pivot,*(p_end-1));
   pivot = p_end - 1;
   int* it1 = p_begin;
@@ -17,24 +18,34 @@ int* partition(int* p_begin, int* p_end) {
   return it1;
 }
 
-void quicksort(int* p_begin, int* p_end) {
+void quick_sort(int* p_begin, int* p_end) {
   if(p_end-p_begin <= 1) return;
   int* pivot = partition(p_begin, p_end);
-  quicksort(p_begin,pivot);
-  quicksort(pivot+1,p_end);
+  quick_sort(p_begin,pivot);
+  quick_sort(pivot+1,p_end);
+}
+
+void quicker_sort(int* p_begin, int* p_end) {
+  while(p_end-p_begin > 1) {
+    int* pivot = partition(p_begin, p_end);
+    quicker_sort(p_begin,pivot);
+    p_begin = pivot+1;
+  }
 }
 
 int main() {
-  int* a = (int*)malloc(100*sizeof(int));
-  for (int i = 0; i < 100; i++) {
-    a[i] = (4269*i)%100;
-    std::cout<<a[i]<<";";
+  std::srand(std::time(nullptr));
+  int n = 10000000;
+
+  int* a = (int*)malloc(n*sizeof(int));
+  if(a == nullptr) return 0;
+  std::cout<<"Génération d'un tableau de "<<n<<" entiers..."<<std::endl;
+  for (int i = 0; i < n; i++) {
+    a[i] = std::rand()%n;
   }
-  std::cout<<std::endl;
-  quicksort(a,a+100);
-  for (int i = 0; i < 100; i++) {
-    std::cout<<a[i]<<";";
-  }
-  std::cout<<std::endl;
+  std::cout<<"Faites \"Enter\" pour lancer le tri"<<std::endl;
+  getchar();
+  quick_sort(a,a+n);
+  std::cout<<"Tri effectué !"<<std::endl;
   free(a);
 }
