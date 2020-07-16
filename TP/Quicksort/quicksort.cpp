@@ -22,7 +22,7 @@ void quick_sort(int* p_begin, int* p_end) {
 
 }
 
-/** Fonction void quick_sort(int* p_begin, int* p_end)
+/** Fonction void quicker_sort(int* p_begin, int* p_end)
  *  Trie un tableau en utilisant l'algorithme quick_sort, avec optimisation de
  *  l'appel récursif terminal
  *  @param int* p_begin : l'adresse du premier élément du tableau à trier
