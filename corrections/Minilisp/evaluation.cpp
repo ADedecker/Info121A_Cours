@@ -16,7 +16,7 @@ Val evalTerm(Term t, Val* var_values) {
       //std::cout<<"C"<<std::endl;
       return evalFunctionCall(t.call.p_function, t.call.parameters, var_values);
   }
-  return Val{};
+  return 0;
 }
 
 Val evalBuiltinOp(BuiltinOp op, Term* p, Val* var_values) {

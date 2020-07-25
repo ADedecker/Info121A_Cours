@@ -18,7 +18,7 @@ bool execute(InteractiveSession* session, std::string instruction, std::ostream&
     std::string filename;
     instruction_stream >> filename;
     std::ifstream filestr;
-    filestr.open(session->path_prefix + filename + ".mlisp");
+    filestr.open(session->path_prefix + filename + ".fun");
     if(!filestr) {
       out<<"This file doesn't exist"<<std::endl;
     }else{

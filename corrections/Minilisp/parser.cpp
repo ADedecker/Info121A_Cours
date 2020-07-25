@@ -75,7 +75,7 @@ void parseTerm(Term* p_term, std::istream& stream, FunctionPool* functionPool, V
     Term* params;
 
     try{
-      params = new Term[n_params]{};
+      params = new Term[n_params];
     }catch(...){
       throw MinilispError{MinilispError::TERM_ALLOCATION_FAILED,"Erreur d'allocation. Libérez de la mémoire."};
     }
