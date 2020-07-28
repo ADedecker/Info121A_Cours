@@ -2,22 +2,22 @@
 
 void initValueTerm(Term* p_term, Val value) {
   p_term->tag = Term::VALUE;
-  p_term->value = value;
+  p_term->data.value = value;
 }
 
 void initVariableTerm(Term* p_term, size_t id) {
   p_term->tag = Term::VARIABLE;
-  p_term->variable.id = id;
+  p_term->data.variable.id = id;
 }
 
 void initOperationTerm(Term* p_term, BuiltinOp op, Term* parameters) {
   p_term->tag = Term::OPERATION;
-  p_term->operation = {op, parameters};
+  p_term->data.operation = {op, parameters};
 }
 
 void initCallTerm(Term* p_term, Function* p_function, Term* parameters) {
   p_term->tag = Term::CALL;
-  p_term->call = {p_function, parameters};
+  p_term->data.call = {p_function, parameters};
 }
 
 void destroyTerm(Term* p_term) {
@@ -26,15 +26,15 @@ void destroyTerm(Term* p_term) {
     case Term::VARIABLE:
       break;
     case Term::CALL:
-      for(size_t i = 0; i < p_term->call.p_function->n_params ; i++) {
-        destroyTerm(p_term->call.parameters + i);
+      for(size_t i = 0; i < p_term->data.call.p_function->n_params ; i++) {
+        destroyTerm(p_term->data.call.parameters + i);
       }
-      delete[] p_term->call.parameters;
+      delete[] p_term->data.call.parameters;
     case Term::OPERATION:
-      for(size_t i = 0; i < n_params_op(p_term->operation.op) ; i++) {
-        destroyTerm(p_term->operation.parameters + i);
+      for(size_t i = 0; i < n_params_op(p_term->data.operation.op) ; i++) {
+        destroyTerm(p_term->data.operation.parameters + i);
       }
-      delete[] p_term->operation.parameters;
+      delete[] p_term->data.operation.parameters;
   }
 }
 
@@ -44,9 +44,7 @@ void destroyFunction(Function* ptr) {
 
 size_t n_params_op(BuiltinOp op) {
   switch (op) {
-    case NEG:
     case NOT:
-    case PRINT:
       return 1;
     case ADD:
     case SUB:

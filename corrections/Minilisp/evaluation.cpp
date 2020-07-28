@@ -5,16 +5,16 @@ Val evalTerm(Term t, Val* var_values) {
   switch (t.tag) {
     case Term::VALUE:
       //std::cout<<"V"<<std::endl;
-      return t.value;
+      return t.data.value;
     case Term::VARIABLE:
       //std::cout<<"P"<<std::endl;
-      return var_values[t.variable.id];
+      return var_values[t.data.variable.id];
     case Term::OPERATION:
       //std::cout<<"O"<<std::endl;
-      return evalBuiltinOp(t.operation.op, t.operation.parameters, var_values);
+      return evalBuiltinOp(t.data.operation.op, t.data.operation.parameters, var_values);
     case Term::CALL:
       //std::cout<<"C"<<std::endl;
-      return evalFunctionCall(t.call.p_function, t.call.parameters, var_values);
+      return evalFunctionCall(t.data.call.p_function, t.data.call.parameters, var_values);
   }
   return 0;
 }
@@ -25,8 +25,6 @@ Val evalBuiltinOp(BuiltinOp op, Term* p, Val* var_values) {
       return evalTerm(p[0],var_values) + evalTerm(p[1],var_values);
     case SUB:
       return evalTerm(p[0],var_values) - evalTerm(p[1],var_values);
-    case NEG:
-      return -evalTerm(p[0],var_values);
     case MUL:
       return evalTerm(p[0],var_values) * evalTerm(p[1],var_values);
     case DIV:
@@ -56,11 +54,7 @@ Val evalBuiltinOp(BuiltinOp op, Term* p, Val* var_values) {
         return evalTerm(p[1],var_values);
       }else{
         return evalTerm(p[2],var_values);
-      };
-    case PRINT:
-      Val ret = evalTerm(p[0],var_values);
-      std::cout<<ret;
-      return ret;
+      }
   }
 }
 

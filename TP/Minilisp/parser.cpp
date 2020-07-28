@@ -114,34 +114,15 @@ void initEmptyVariablePool(VariablePool* pool) {
 }
 
 void addVariableToPool(VariablePool* pool, std::string name) {
-  try {
-    *(pool->p_last_pointer) = new VariableListNode{name,nullptr};
-    pool->p_last_pointer = &((*(pool->p_last_pointer))->p_next);
-  }
-  catch(...) {
-    throw MinilispError{MinilispError::ALLOCATION_FAILED, "Erreur d'allocation. Libérez de la mémoire."};
-  }
+
 }
 
 int searchVariableInPool(VariablePool* pool, std::string name) {
-  VariableListNode* it = pool->p_begin;
-  int i = 0;
-  while(it != nullptr) {
-    if(it->name == name) return i;
-    i++;
-    it = it->p_next;
-  }
   return -1;
 }
 
 void clearVariablePool(VariablePool* pool) {
-  VariableListNode* tmp = pool->p_begin;
-  while(pool->p_begin != nullptr) {
-    pool->p_begin = pool->p_begin->p_next;
-    delete tmp;
-    tmp = pool->p_begin;
-  }
-  pool->p_last_pointer = &(pool->p_begin);
+
 }
 
 void loadNewFunction(std::istream& stream, FunctionPool* functionPool) {
@@ -180,49 +161,25 @@ void initEmptyFunctionPool(FunctionPool* pool) {
 }
 
 Function* addFunctionToPool(FunctionPool* pool, std::string name) {
-  FunctionTreeNode** ptr_to_update = &(pool->p_root);
-  FunctionTreeNode* it = pool->p_root;
-  while(it != nullptr) {
-    if(it->name == name) {destroyFunction(&(it->function)); return &(it->function); }
-    if(it->name > name) {ptr_to_update = &(it->p_left); it = it->p_left;}
-    else {ptr_to_update = &(it->p_right); it = it->p_right;}
-  }
-  try{
-    *ptr_to_update = new FunctionTreeNode{name, {Term{}, 0}, nullptr, nullptr};
-  } catch (...) {
-    throw MinilispError{MinilispError::ALLOCATION_FAILED, "Erreur d'allocation. Libérez de la mémoire."};
-  }
-  return &((*ptr_to_update)->function);
+  throw MinilispError{MinilispError::NOT_IMPLEMENTED, "La gestion des fonctions n'est pas encore implémentée !"};
 }
 
 void listFunctions(FunctionTreeNode* p_node) {
-  if(p_node == nullptr) return;
-  listFunctions(p_node->p_left);
-  std::cout<<" "<<p_node->name<<" ["<<p_node->function.n_params<<"]"<<std::endl;
-  listFunctions(p_node->p_right);
+
 }
 
 void listFunctions(FunctionPool* pool) {
-  listFunctions(pool->p_root);
+
 }
 
 Function* searchFunctionInPool(FunctionPool* pool, std::string name) {
-  FunctionTreeNode* it = pool->p_root;
-  while(it != nullptr) {
-    if(it->name == name) return &(it->function);
-    if(it->name > name) it = it->p_left;
-    else it = it->p_right;
-  }
   return nullptr;
 }
 
 void clearFunctionPool(FunctionTreeNode* p_node) {
-  if(p_node == nullptr) return;
-  clearFunctionPool(p_node->p_left);
-  clearFunctionPool(p_node->p_right);
-  delete p_node;
+
 }
 
 void clearFunctionPool(FunctionPool* pool) {
-  clearFunctionPool(pool->p_root);
+
 }

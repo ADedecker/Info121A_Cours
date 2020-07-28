@@ -5,7 +5,7 @@
 
 //Une structure correspondant aux différentes erreurs possibles
 struct MinilispError {
-  enum Type {INVALID_HEADER, EXPECTED_TERM, ARITY_ERROR, UNKNOWN_SYMBOL, ALLOCATION_FAILED} type;
+  enum Type {INVALID_HEADER, EXPECTED_TERM, ARITY_ERROR, UNKNOWN_SYMBOL, ALLOCATION_FAILED, NOT_IMPLEMENTED} type;
   std::string msg;
 };
 
