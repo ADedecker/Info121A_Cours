@@ -8,7 +8,7 @@ On a vu le "parcours" d'arbre, i.e comment parcourir linéairement les noeuds d'
 
 Évidemment, même pour une méthode de parcours donnée, des arbres différents peuvent donner la même suite de noeuds
 
-```md
+```
     A                   A
    / \                  |
   B   C       et        B
@@ -26,7 +26,9 @@ Cependant, il y a un cas particulier où on va pouvoir établir **une bijection*
 - Arbre binaire parfait : arbre binaire où 1) tout noeud à 0 ou 2 fils 2) toutes les feuilles ont la même profondeur
 - Arbre binaire quasi-parfait : arbre binaire parfait privé d'un certain nombre de ses feuilles; de telle sorte que les feuilles soient "tassées" à gauche
 
-```md
+Exemple : seuls les deux derniers arbres sont quasi-parfaits (le deuxième est d'ailleurs parfait)
+
+```
     0                  0                  0
    / \                / \                / \
   1   2             1     2            1     2
@@ -47,9 +49,9 @@ Corollaire : tout tableau correspond à un unique arbre binaire quasi parfait ! 
 
 ## Idée clé du tri par tas (heap sort)
 
-On va partir du tri par sélection
+On va partir du tri par sélection (O(n^2))
 
-Principe du tri par sélection : chercher l'élément maximal du tableau, le mettre à lé fin, et recommencer sur les éléments restant. Problème principal : trouver l'élément maximal implique de parcourir le tableau entier
+Principe du tri par sélection : chercher l'élément maximal du tableau, le mettre à la fin, et recommencer sur les éléments restant. Problème principal : trouver l'élément maximal implique de parcourir le tableau entier
 
 Les arbres vont nous aider à améliorer cette opération
 
@@ -59,7 +61,7 @@ Définition : **Un tas binaire est un arbre binaire quasi-parfait où chaque noe
 
 Propriété intéressante : **la valeur la plus grande de l'arbre est celle de la racine**
 
-```md
+```
 
      6
     / \        
@@ -83,7 +85,7 @@ Supposons que les `i` premiers éléments forment un tas binaire. On échange al
 
 Du point de vue du tas, on interprète ça comme : on retire la racine, et on la remplace par une feuille du tas, plus précisément la feuille la plus à droite sur la rangée la plus profonde du tas (on garde donc un arbre quasi parfait)
 
-```md
+```
      6
     / \        
   5     4      
@@ -102,7 +104,7 @@ On remarque que les sous arbres engendrés par les fils de la racine sont toujou
 
 Solution : **Échanger la racine et le plus grand de ses fils**
 
-```md
+```
 
      5
     / \        
@@ -114,7 +116,7 @@ Solution : **Échanger la racine et le plus grand de ses fils**
 
 Maintenant, il y a un problème dans le sous arbre où on a fait l'échange. Mais ce problème ne concerne que la racine de ce sous-arbre, donc on va le résoudre **en répétant la même opération** ==> On tamise récursivement jusqu'à ce qu'il n'y ait plus de problème
 
-```md
+```
 
      5
     / \        
@@ -140,10 +142,6 @@ Du coup, pour former un tas, il suffit de :
 
 Pour être sur du bon fonctionnement, condition d'arrêt ? Un arbre d'un seul noeud est un tas !
 
+Implémentation complète dans `exemples/tris/heap_sort.cpp`
 
 
-
-
-
-
-_
