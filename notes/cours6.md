@@ -66,6 +66,7 @@ unsigned long long fib(int n) {
 }
 ```
 
+```
 fib(4)
 ->fib(3)
   ->fib(2)
@@ -75,6 +76,7 @@ fib(4)
 ->fib(2)
   -> fib(1)
   -> fib(0)
+```
 
 C'est très inefficace car on calcule plusieurs fois la même chose ==> Complexité exponentielle !!!!
 
